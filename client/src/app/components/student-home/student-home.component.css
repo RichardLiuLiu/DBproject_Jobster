@@ -1,0 +1,11 @@
+.push-col-left {
+    margin-left: 6em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.push-col-right {
+    margin-right: 6em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}

@@ -1,0 +1,31 @@
+<div class="container">
+  <form class="form-signup">
+    <h1 class="h3 mb-3 font-weight-normal" style="text-align:center">Student Sign Up</h1>
+
+    <p *ngIf="error" style="color:red">{{error}}</p>
+
+    <label for="inputId" class="sr-only">Full Name</label>
+    <input type="email" id="inputName" class="form-control" placeholder="Full Name" required autofocus
+      [(ngModel)] = "sname" name="sname">
+
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required
+      [(ngModel)] = "password" name="password">
+
+    <label for="confirmPassword" class="sr-only">Confirm Password</label>
+    <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password" required
+      [(ngModel)] = "confirm_password" name="confirm_password">
+
+    <button class="btn btn-lg btn-primary btn-block submit-btn" type="submit" (click)="submitForm()">
+      Sign Up
+    </button>
+
+    <div align="right" style="font-size:1.2em">
+      <span> Already have an account?</span>
+      <span><a href="#" routerLink="/login">Login</a></span>
+    </div>
+
+  </form>
+</div>
+
+<app-signup-success [sid]="sid"></app-signup-success>

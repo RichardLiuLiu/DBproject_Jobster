@@ -1,0 +1,27 @@
+<!-- Modal -->
+<div class="modal fade" id="friend-list-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalCenterTitle">Please select a friend.
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </h4>
+      </div>
+
+      <div class="modal-body">
+        <div class="list-group">
+          <button type="button" class="list-group-item" *ngFor="let student of students"
+            (click)="forwardJob(jid, sender, student.sid)">
+            <strong>{{student.sname}}</strong><span class="pull-right">{{student.university}}</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+      </div>
+    </div>
+  </div>
+</div>

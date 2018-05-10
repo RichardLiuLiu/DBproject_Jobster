@@ -1,0 +1,89 @@
+<div class="container">
+  <h2>My Profile</h2>
+  <div>
+    <form #formRef = "ngForm">
+      
+      <div class="form-group">
+        <strong>ID: {{studentInfo.sid}}</strong>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control"
+          [(ngModel)] = "studentInfo.sname" name = "name">
+      </div>
+
+      <div class="form-group">
+        <label for="university">University</label>
+        <input type="text" class="form-control"
+          [(ngModel)] = "studentInfo.university" name = "university">
+      </div>
+
+      <!-- <div class="form-group">
+        <label for="degree">Degree</label>
+        <input type="text" class="form-control"
+          [(ngModel)] = "studentInfo.degree" name = "degree">
+      </div> -->
+
+      <div class="form-group">
+        <label for="degree">Degree</label> 
+        <select class="form-control" name="degree"
+          [(ngModel)] = "studentInfo.degree">
+            <option *ngFor = "let degree of degrees" [value] = "degree">
+              {{degree}}
+            </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="major">Major</label>
+        <input type="text" class="form-control"
+          [(ngModel)] = "studentInfo.major" name = "major">
+      </div>
+
+      <div class="form-group">
+        <label for="gpa">GPA</label>
+        <input type="text" class="form-control"
+          [(ngModel)] = "studentInfo.gpa" name = "gpa">
+      </div>
+
+      <div class="form-group">
+        <label for="skill">Skills</label>
+        <input type="text" class="form-control"
+          [(ngModel)] = "studentInfo.skill" name = "skill">
+      </div>
+
+      <!-- <div class="form-group">
+        <label for="resume">Resume</label>
+        <input type="text" class="form-control"
+          [(ngModel)] = "resume" name = "resume">
+      </div> -->
+      <div class="form-group">
+        <label for="resume">Resume</label>
+        <textarea readonly name = "resume" class="form-control"
+          placeholder="My resume." 
+          [(ngModel)] = "resume" rows="10">
+        </textarea>
+      </div>
+
+      <div class="form-group">
+        <input type="file" (change)="getFile($event)">
+      </div>
+
+    </form>
+  </div>
+
+  <div class="footer-button">
+    <button type="button" class="btn btn-info btn-md"
+      (click) ="updateStudentProfile(studentInfo)">
+      Update
+    </button>
+    <!-- <button type="button" class="btn btn-info btn-md"
+      (click) ="updateResume(sid, filestring)">
+      Upload
+    </button> -->
+  </div>
+</div>
+
+<br/>
+<br/>

@@ -1,0 +1,34 @@
+<div class="container">
+
+    <h1>Search Results</h1>
+      
+    <table class="table">
+        <thead>
+            <tr class="table-column-name">
+                <th scope="col">Name</th>
+                <th scope="col">University</th>
+                <th scope="col">Degree</th>
+                <th scope="col">Major</th>
+                <th scope="col">Skills</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-item" *ngFor="let student of students">
+                <ng-container *ngIf="student.sid !== sid">
+                    <td>{{student.sname}}</td>
+                    <td>{{student.university}}</td>
+                    <td>{{student.degree}}</td>
+                    <td>{{student.major}}</td>
+                    <td>{{student.skill}}</td>
+                    <td>
+                        <button type="button" class="btn btn-info btn-sm detail-button"
+                            [routerLink]="['/student-detail', student.sid]">
+                            Detail
+                        </button>
+                    </td>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+</div>

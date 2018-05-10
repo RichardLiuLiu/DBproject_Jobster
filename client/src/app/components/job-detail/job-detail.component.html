@@ -1,0 +1,58 @@
+<div class="container" *ngFor="let job of jobInfo">
+
+    <h1>{{job.title}}</h1>
+    <div>
+      <h5>posted on: {{job.posttime}}</h5>
+    </div>
+    
+    <div class="info-item">
+      <h3>Company</h3>
+      <h4 class="info-content"><a [routerLink]="['/company-detail', job.cid]">{{job.cname}}</a></h4>
+    </div>
+  
+    <div class="info-item">
+      <h3>Location</h3>
+      <h4 class="info-content">{{job.jlocation}}</h4>
+    </div>
+  
+    <div class="info-item">
+      <h3>Salary</h3>
+      <h4 class="info-content">{{job.salary}}</h4>
+    </div>
+  
+    <div class="info-item">
+      <h3>Degree Constraints</h3>
+      <h4 class="info-content">{{job.academicbar}}</h4>
+    </div>
+  
+    <div class="info-item">
+      <h3>Major Constraints</h3>
+      <h4 class="info-content">{{job.majorbar}}</h4>
+    </div>
+  
+    <div class="info-item">
+      <h3>Job Description</h3>
+      <h4 class="info-content">{{job.desc}}</h4>
+    </div>
+  
+    <div class="footer-button row">
+        <button type="button" *ngIf="!hasApplied" class="btn btn-info btn-md"
+          (click) ="applyForJob(jid, sid)">
+          Apply
+        </button>
+        <h4 *ngIf="hasApplied" style="color:red">
+          {{appStatus}}
+        </h4>
+        <button type="button" class="btn btn-info btn-md"
+          (click) ="showFriendList(job.jid)">
+          Forward
+        </button>
+        <button type="button" class="btn btn-secondary btn-md pull-right"
+          (click)="backToLastPage()">
+          Back
+        </button>
+    </div>
+  
+  </div>
+
+  <app-friend-list-modal [jid]="jid"></app-friend-list-modal>

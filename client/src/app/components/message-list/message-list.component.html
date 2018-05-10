@@ -1,0 +1,49 @@
+<div class="container static-bottom" style="margin-top:2.0em; margin-bottom:2.0em;">
+  <h4>New Message</h4>
+  <div class="form-group">
+    <textarea name = "newMessage" id="newMessage" class="form-control"
+      placeholder="New message..." 
+      [(ngModel)] = "newMessage" rows="3">
+    </textarea>
+    <button class="btn btn-info pull-right" style="margin-top:1.0em"
+      (click)="sendMessage(me, you, newMessage)">
+      Send
+    </button>
+  </div>
+</div>
+
+<div class="container">
+
+  <h4 *ngIf="flag">No Messages</h4>
+  
+  <ng-container *ngFor="let message of messages">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-4">
+        <div class="panel panel-default" *ngIf="message.sid === you">
+          <div class="panel-heading">
+            <strong>{{message.sname}} wrote:</strong>
+            <span class="pull-right">{{message.mtime}}</span>
+          </div>
+          <div class="panel-body">
+            {{message.content}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-0">
+        <div class="panel panel-success col-4" *ngIf="message.sid === me">
+          <div class="panel-heading">
+            <strong>I wrote:</strong>
+            <span class="pull-right">{{message.mtime}}</span>
+          </div>
+          <div class="panel-body">
+            {{message.content}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+</div>

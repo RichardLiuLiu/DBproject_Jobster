@@ -1,0 +1,44 @@
+<div class="container" *ngFor="let student of studentInfo">
+
+  <h1>{{student.sname}}</h1>
+
+  <div class="info-item">
+    <h3>University</h3>
+    <h4 class="info-content">{{student.university}}</h4>
+  </div>
+
+  <div class="info-item">
+    <h3>Degree</h3>
+    <h4 class="info-content">{{student.degree}}</h4>
+  </div>
+
+  <div class="info-item">
+    <h3>Major</h3>
+    <h4 class="info-content">{{student.major}}</h4>
+  </div>
+
+  <div class="info-item">
+    <h3>Skills</h3>
+    <h4 class="info-content">{{student.skill}}</h4>
+  </div>
+
+  <div class="info-item" *ngIf="isApplicant">
+    <h3>GPA</h3>
+    <h4 class="info-content">{{student.gpa}}</h4>
+  </div>
+
+  <div class="info-item" *ngIf="isApplicant">
+    <h3>Resume</h3>
+    <textarea readonly name = "resume" placeholder="resume." 
+      [(ngModel)] = "resume" rows="10" cols="80">
+    </textarea>
+  </div>
+
+  <div class="footer-button">
+      <button type="button" class="btn btn-secondary btn-md pull-right"
+        (click)="backToLastPage()">
+        Back
+      </button>
+  </div>
+
+</div>

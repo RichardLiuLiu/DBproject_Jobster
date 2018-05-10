@@ -1,0 +1,46 @@
+<div class="container">
+
+  <h1>All Posted Jobs</h1>
+    
+  <table class="table">
+      <thead>
+        <tr class="table-column-name">
+          <th scope="col">Job Title</th>
+          <th scope="col">Location</th>
+          <th scope="col">Salary</th>
+          <th scope="col">Post Time</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="table-item" *ngFor="let job of jobs">
+            <td>{{job.title}}</td>  
+            <td>{{job.jlocation}}</td>
+            <td>{{job.salary}}</td>
+            <td>{{job.posttime}}</td>
+            <td>
+              <button type="button" class="btn btn-info btn-sm detail-button pull-right"
+                [routerLink]="['/jobs', job.jid]">
+                Edit
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-info btn-sm detail-button"
+                (click)="showFilterModal(job.jid)">
+                Push
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-info btn-sm detail-button"
+                [routerLink]="['/applications', job.jid]">
+                Applications
+              </button>
+            </td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+
+<app-push-filter-modal [jid]="jid"></app-push-filter-modal>

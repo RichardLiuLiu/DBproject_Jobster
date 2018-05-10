@@ -1,0 +1,35 @@
+<div class="container" *ngFor="let company of companyInfo">
+
+  <h1>{{company.cname}}</h1>
+
+  <div class="info-item">
+    <h3>Location</h3>
+    <h4 class="info-content">{{company.clocation}}</h4>
+  </div>
+
+  <div class="info-item">
+    <h3>Industry</h3>
+    <h4 class="info-content">{{company.industry}}</h4>
+  </div>
+
+  <div class="footer-button">
+      <button type="button" *ngIf="!isFollowing" class="btn btn-info btn-md"
+        (click)="followCompany(sid, cid)">
+        Follow
+      </button>
+      <button type="button" *ngIf="isFollowing" class="btn btn-secondary btn-md"
+        (click)="unfollowCompany(sid, cid)">
+        Unfollow
+      </button>
+      <button type="button" class="btn btn-info btn-md"
+        [routerLink]="['/job-list', cid]">
+        See All Jobs
+      </button>
+      <button type="button" class="btn btn-secondary btn-md pull-right"
+        (click)="backToLastPage()">
+        Back
+      </button>
+  </div>
+
+</div>
+

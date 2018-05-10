@@ -1,0 +1,76 @@
+<div class="container" *ngIf="isJobPoster">
+  <h2>Job Detail</h2>
+  <div>
+    <form #formRef = "ngForm">
+      
+      <div class="form-group">
+        <label for="jobId">Job ID</label>
+        <p class="form-control-static">{{jobInfo.jid}}</p>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Job Title</label>
+        <input type="text" class="form-control"
+          [(ngModel)] = "jobInfo.title" name = "name">
+      </div>
+
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" class="form-control"
+          [(ngModel)] = "jobInfo.jlocation" name = "location">
+      </div>
+
+      <div class="form-group">
+        <label for="salary">Salary</label>
+        <input type="text" class="form-control"
+          [(ngModel)] = "jobInfo.salary" name = "salary">
+      </div>
+
+      <div class="form-group">
+        <label for="degree">Degree Requirement</label> 
+        <select class="form-control" name="degree"
+          [(ngModel)] = "jobInfo.academicbar">
+            <option *ngFor = "let degree of degrees" [value] = "degree">
+              {{degree}}
+            </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="majorbar">Major Requirement</label>
+        <input type="text" class="form-control"
+          [(ngModel)] = "jobInfo.majorbar" name = "majorbar">
+      </div>
+
+      <div class="form-group">
+        <label for="desc">Job Description</label>
+        <textarea name = "desc" id="desc" class="form-control"
+          [(ngModel)] = "jobInfo.desc" rows="3">
+        </textarea>
+      </div>      
+
+    </form>
+  </div>
+
+  <div class="footer-button">
+    <button type="button" class="btn btn-info btn-md"
+      (click) ="updateJobInfo(jobInfo)">
+      Update
+    </button>
+    <button type="button" class="btn btn-secondary btn-md pull-right"
+      (click)="backToLastPage()">
+      Back
+    </button>
+  </div>
+</div>
+
+<div class="container" *ngIf="!isJobPoster">
+  <h3>You are not the poster of this job!</h3>
+  <button type="button" class="btn btn-secondary btn-md pull-right"
+    (click)="backToLastPage()">
+    Back
+  </button>
+</div>
+
+<br/>
+<br/>

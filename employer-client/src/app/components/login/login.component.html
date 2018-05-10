@@ -1,0 +1,30 @@
+<div class="container">
+  <form class="form-signin">
+    <h1 class="h3 mb-3 font-weight-normal" style="text-align:center">Company Login</h1>
+
+    <p *ngIf="error" style="color:red">{{error}}</p>
+
+    <input type="email" id="inputId" class="form-control" placeholder="User ID" required autofocus
+      [(ngModel)] = "cid" name="cid">
+
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required
+      [(ngModel)] = "password" name="password">
+
+    <button class="btn btn-lg btn-primary btn-block submit-btn" type="submit"
+      (click)="submitForm()">
+      Login
+    </button>
+
+    <div align="right" style="font-size:1.2em">
+      <span> New to Jobster?</span>
+      <span><a href="#" routerLink="/signup">Sign Up</a></span>
+    </div>
+
+    <div align="center" style="font-size:1.0em; margin-top:1.0em;">
+      <span>A student?</span>
+      <span><a href="../s"> Login as student</a></span>
+    </div>
+
+  </form>
+</div>

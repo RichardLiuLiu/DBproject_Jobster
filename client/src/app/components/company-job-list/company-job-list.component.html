@@ -1,0 +1,37 @@
+<div class="container">
+
+  <h1>All Posted Jobs</h1>
+    
+  <table class="table">
+      <thead>
+        <tr class="table-column-name">
+          <th scope="col">Job Title</th>
+          <th scope="col">Location</th>
+          <th scope="col">Salary</th>
+          <th scope="col">Post Time</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="table-item" *ngFor="let job of jobs">
+            <td>{{job.title}}</td>  
+            <td>{{job.jlocation}}</td>
+            <td>{{job.salary}}</td>
+            <td>{{job.posttime}}</td>
+            <td>
+              <button type="button" class="btn btn-info btn-sm detail-button pull-right"
+                [routerLink]="['/job-detail', job.jid]">
+                Detail
+              </button>
+            </td>
+          </tr>
+      </tbody>
+  </table>
+
+  <div class="footer-button">
+    <button type="button" class="btn btn-secondary btn-md pull-left"
+        (click)="backToLastPage()">
+        Back
+    </button>
+  </div>
+</div>

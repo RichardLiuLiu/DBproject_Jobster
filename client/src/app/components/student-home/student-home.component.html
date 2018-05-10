@@ -1,0 +1,61 @@
+<h1>Student Home Page</h1>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-5 push-col-left">
+            <h4>Job Notifications</h4>
+            <ng-container *ngFor="let notification of notifications">
+                <div class="row">
+                    <div class="panel panel-primary" *ngIf="notification.jnstatus==='unread'">
+                        <div class="panel-heading">
+                            From <strong>{{notification.cname}}</strong>: <span class="pull-right">{{notification.jntime}}</span>
+                        </div>
+                        <div class="panel-body">
+                            {{notification.title}}<button type="button" class="btn btn-default btn-sm detail-button pull-right"
+                                (click)="showNotificationDetail(notification.jid, sid, notification.jntime)">Detail</button>
+                        </div>
+                    </div>
+                    <div class="panel panel-default" *ngIf="notification.jnstatus==='read'">
+                        <div class="panel-heading">
+                            From <strong>{{notification.cname}}</strong>: <span class="pull-right">{{notification.jntime}}</span>
+                        </div>
+                        <div class="panel-body">
+                            {{notification.title}}<button type="button" class="btn btn-default btn-sm detail-button pull-right"
+                                (click)="showNotificationDetail(notification.jid, sid, notification.jntime)">Detail</button>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+
+        <div class="col-md-5 push-col-right pull-right">
+            <h4>Job Forwards</h4>
+            <ng-container *ngFor="let forward of forwards">
+                <div class="row">
+                    <div class="panel panel-primary" *ngIf="forward.jfstatus==='unread'">
+                        <div class="panel-heading">
+                            From <strong>{{forward.sname}}</strong>: <span class="pull-right">{{forward.jftime}}</span>
+                        </div>
+                        <div class="panel-body">
+                            <p>Hi, I recommend a job to you.</p>
+                            <strong>{{forward.cname}}:</strong>
+                            {{forward.title}}<button type="button" class="btn btn-default btn-sm detail-button pull-right"
+                                (click)="showForwardDetail(forward.jid, forward.sid, sid, forward.jftime)">Detail</button>
+                        </div>
+                    </div>
+                    <div class="panel panel-default" *ngIf="forward.jfstatus==='read'">
+                        <div class="panel-heading">
+                            From <strong>{{forward.sname}}</strong>: <span class="pull-right">{{forward.jftime}}</span>
+                        </div>
+                        <div class="panel-body">
+                            <p>Hi, I recommend a job to you.</p>
+                            <strong>{{forward.cname}}:</strong>
+                            {{forward.title}}<button type="button" class="btn btn-default btn-sm detail-button pull-right"
+                                (click)="showForwardDetail(forward.jid, forward.sid, sid, forward.jftime)">Detail</button>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div> 
+</div>

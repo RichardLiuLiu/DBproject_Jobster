@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>New Invitations</h1>     
+  <table class="table">
+      <thead>
+          <tr class="table-column-name">
+              <th scope="col">Name</th>
+              <th scope="col">University</th>
+              <th></th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr class="table-item" *ngFor="let invitation of invitations">
+            <ng-container *ngIf="invitation.istatus === 'awaiting'">
+              <td>{{invitation.sname}}</td>
+              <td>{{invitation.university}}</td>
+              <td>
+                <button type="button" class="btn btn-info btn-md detail-button" style="float:right; background-color:green"
+                (click)="handleInvitation(invitation.sd, receiver, 'accepted')">
+                  Accept
+                </button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-info btn-md detail-button" style="background-color:red"
+                  (click)="handleInvitation(invitation.sd, receiver, 'declined')">
+                  Decline
+                </button>
+              </td>
+            </ng-container>
+          </tr>
+      </tbody>
+  </table>
+</div>

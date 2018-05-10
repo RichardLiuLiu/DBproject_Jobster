@@ -1,0 +1,30 @@
+<div class="container">
+
+  <h1>My Applications</h1>
+    
+  <table class="table">
+      <thead>
+          <tr class="table-column-name">
+              <th scope="col">Job Title</th>
+              <th scope="col">Company</th>
+              <th scope="col">Application Time</th>
+              <th scope="col">Status</th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr class="table-item" *ngFor="let application of applications">
+            <td>{{application.title}}</td>
+            <td>{{application.cname}}</td>
+            <td>{{application.apptime}}</td>
+            <td>{{application.appstatus}}</td>
+            <td>
+                <button type="button" class="btn btn-info btn-sm detail-button"
+                    [routerLink]="['/job-detail', application.jid]">
+                    Detail
+                </button>
+            </td>
+          </tr>
+      </tbody>
+  </table>
+</div>

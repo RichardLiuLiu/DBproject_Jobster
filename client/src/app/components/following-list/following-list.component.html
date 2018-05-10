@@ -1,0 +1,28 @@
+<div class="container">
+
+    <h1>All Followings</h1>
+  
+    <table class="table">
+        <thead>
+            <tr class="table-column-name">
+                <th scope="col">Company</th>
+                <th scope="col">Location</th>
+                <th scope="col">Industry</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr class="table-item" *ngFor="let company of companies">
+              <td>{{company.cname}}</td>
+              <td>{{company.clocation}}</td>
+              <td>{{company.industry}}</td>
+              <td>
+                <button type="button" class="btn btn-info btn-sm detail-button"
+                  [routerLink]="['/company-detail', company.cid]">
+                  Detail
+                </button>
+              </td>
+          </tr>
+        </tbody>
+    </table>
+  </div>

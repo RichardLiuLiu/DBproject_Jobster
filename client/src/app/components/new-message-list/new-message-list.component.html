@@ -1,0 +1,19 @@
+<div class="container">
+
+  <h4 *ngIf="flag">No New Messages</h4>
+
+  <div class="row" *ngFor="let message of messages" [routerLink]="['/messages', message.sid]">
+    <div class="col-md-8 col-md-offset-0">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <strong>{{message.sname}} wrote:</strong>
+          <span class="pull-right">{{message.mtime}}</span>
+        </div>
+        <div class="panel-body">          
+          {{message.content}}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

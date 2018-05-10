@@ -1,0 +1,41 @@
+<div class="container">
+  <h2>My Profile</h2>
+  <div>
+    <form #formRef = "ngForm">
+      
+      <div class="form-group">
+        <label for="companyId">ID</label>
+        <p class="form-control-static">{{companyInfo.cid}}</p>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control"
+          [(ngModel)] = "companyInfo.cname" name = "name">
+      </div>
+
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" class="form-control"
+          [(ngModel)] = "companyInfo.clocation" name = "location">
+      </div>
+
+      <div class="form-group">
+        <label for="industry">Industry</label>
+        <input type="text" class="form-control"
+          [(ngModel)] = "companyInfo.industry" name = "industry">
+      </div>
+
+    </form>
+  </div>
+
+  <div class="footer-button">
+    <button type="button" class="btn btn-info btn-md"
+      (click) ="updateCompanyProfile(companyInfo)">
+      Update
+    </button>
+  </div>
+</div>
+
+<br/>
+<br/>

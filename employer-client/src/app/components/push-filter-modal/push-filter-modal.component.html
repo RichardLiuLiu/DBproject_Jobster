@@ -1,0 +1,65 @@
+<!-- Modal -->
+<div class="modal fade" id="push-filter-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalCenterTitle">Please set the filter.
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </h4>
+      </div>
+
+      <div class="modal-body">
+        <div class="list-group">
+          <li class="list-group-item">
+              <label for="university">University: </label>
+              <input type="text" class="form-control"
+                [(ngModel)] = "filter.university" name = "university">
+          </li>
+          <li class="list-group-item">
+              <label for="degree">Degree: </label> 
+              <select class="form-control" name="degree"
+                [(ngModel)] = "filter.degree">
+                  <option *ngFor = "let degree of degrees" [value] = "degree">
+                    {{degree}}
+                  </option>
+              </select>
+          </li>
+          <li class="list-group-item">
+              <label for="major">Major: </label>
+              <input type="text" class="form-control"
+                [(ngModel)] = "filter.major" name = "major">
+          </li>
+          <li class="list-group-item">
+              <label for="gpa">GPA: </label>
+              <input type="text" class="form-control"
+                [(ngModel)] = "filter.gpa" name = "gpa">
+          </li>
+          <li class="list-group-item">
+              <label for="skill">Skill: </label>
+              <input type="text" class="form-control"
+                [(ngModel)] = "filter.skill" name = "skill">
+          </li>
+          <li class="list-group-item">
+              <label for="keyword">Resume Keyword: </label>
+              <input type="text" class="form-control"
+                [(ngModel)] = "filter.keyword" name = "keyword">
+          </li>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="row">
+          <button type="button" class="btn btn-primary"
+            (click)="sendJobNotifications(jid, filter)">
+            Confirm
+          </button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Back
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="container">
+
+  <h1>All Applications for Job: {{jid}}</h1>
+    
+  <table class="table">
+      <thead>
+          <tr class="table-column-name">
+              <th scope="col">Name</th>
+              <th scope="col">University</th>
+              <th scope="col">Degree</th>
+              <th scope="col">Major</th>
+              <th scope="col">Skills</th>
+              <th scope="col">Status</th>
+              <th></th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr class="table-item" *ngFor="let student of students">
+              <ng-container *ngIf="student.sid !== sid">
+                  <td>{{student.sname}}</td>
+                  <td>{{student.university}}</td>
+                  <td>{{student.degree}}</td>
+                  <td>{{student.major}}</td>
+                  <td>{{student.skill}}</td>
+                  <td>
+                    <select class="form-control" name="status" style="font-size:1.0em"
+                        [(ngModel)] = "student.appstatus">
+                        <option *ngFor = "let s of status" [value] = "s">
+                        {{s}}
+                        </option>
+                    </select>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-info btn-sm detail-button pull-left"
+                        (click)="handleApplication(jid, student.sid, student.appstatus)">
+                        Confirm
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-info btn-sm detail-button pull-right"
+                        [routerLink]="['/student-detail', student.sid]">
+                        Student Profile
+                    </button>
+                  </td>
+              </ng-container>
+          </tr>
+      </tbody>
+  </table>
+
+  <div class="footer-button">
+    <button type="button" class="btn btn-secondary btn-md pull-left"
+        (click)="backToLastPage()">
+        Back
+    </button>
+  </div>
+
+</div>
